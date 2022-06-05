@@ -3,6 +3,7 @@
 ## Fresh Git Config
 
 > git config --global user.name "Rene Fibus"
+
 > git config --global user.email "youremail@yourdomain.com"
 
 ## Environment Variables
