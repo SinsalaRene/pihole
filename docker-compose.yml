@@ -8,9 +8,14 @@ services:
     image: pihole/pihole:latest
     # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "192.168.178.66:53:53/tcp"
+      - "192.168.178.66:53:53/udp"
       - "80:80/tcp"
+    networks:
+      pihole_network:
+        ipv4_address: 172.22.0.2
+        aliases:
+          - pihole
     environment:
       TZ: 'Europe/Berlin'
       # WEBPASSWORD: 'set a secure password here or it will be random'
@@ -22,3 +27,8 @@ services:
     cap_add:
       - NET_ADMIN
     restart: unless-stopped # Recommended but not required (DHCP needs NET_ADMIN)  
+networks:
+  pihole_network:
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16
