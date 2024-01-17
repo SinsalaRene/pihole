@@ -1,2 +1,4 @@
 etc*
 iptable*
+logs
+backup_cron.sh

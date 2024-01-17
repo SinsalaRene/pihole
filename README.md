@@ -18,3 +18,10 @@
 ## Ubuntu Notes
 
 Check this: <https://github.com/pi-hole/docker-pi-hole#installing-on-ubuntu>
+
+## Backup
+
+> crontab -e
+Add:
+> 0 2 * * * /home/renef/workspace/pihole/backup_cron.sh >> /home/renef/workspace/pihole/logs/cron_log 2>&1
+
